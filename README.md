@@ -75,7 +75,7 @@ az ad app create --display-name $webAppName --available-to-other-tenants false -
 az webapp stop --name $webAppName --resource-group $resGroup
 # a custom startup command for docker container
 az webapp config set --resource-group $resGroup --name $webAppName --startup-file '/tweb1 -k sample_param-value,1714'
-# configure web app settings get APPLICATION_ID value inside resulted json output from az ad create command: "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",  
+# configure web app settings, get the value for APPLICATION_ID which you can find inside of resulted json output from `az ad create` command like: "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
 az webapp config appsettings set --resource-group $resGroup --name $webAppName --settings APPLICATION_ID='XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
 az webapp config appsettings set --resource-group $resGroup --name $webAppName --settings AD_TENANT_ID=$tenantId
 az webapp config appsettings set --resource-group $resGroup --name $webAppName --settings REDIRECT_URI='https://tweb1app.azurewebsites.net/auth/azureadv2/callback'
